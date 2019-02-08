@@ -1,0 +1,9 @@
+<% if session[:name] %>
+    <h1>Hi, <%= session[:name]%></h1>
+     <%= link_to "Click Me!", secret_show_path, method: :get%>
+    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <input type=submit value='logout'>
+  <% end %>
+<% else %>
+    <%= link_to "Login", session_new_path, method: :get%>
+<% end %>
